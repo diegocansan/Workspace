@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+	<title>OficinaOnline</title>
+	<link rel="shortcut icon" type="image/png"
+		href="resources/images/favicon.png" />
+	<h:outputStylesheet library="css" name="estilos.css" />
+</h:head>
+<h:body>
+	<header>
+		<div id="divTopo">
+			<h1>&#9763; OficinaOnline</h1>
+		</div>
+	</header>
+
+	<nav class="menu">
+		<ul>
+			<li><h:outputLink value="index.xhtml">Inicio</h:outputLink></li>
+			<li><h:outputLink value="listaArtistas.xhtml">Cadastro Artista</h:outputLink></li>
+			<li><h:outputLink value="listaAlbum.xhtml">Cadastro Album</h:outputLink></li>
+		</ul>
+	</nav>
+	
+	<ui:insert name="conteudo">Aqui vai ficar o conteudo</ui:insert>
+	
+	<footer>
+		<p>Versão 10.0 =) | Diego Cansan &#169;</p>
+	</footer>
+</h:body>
+</html>

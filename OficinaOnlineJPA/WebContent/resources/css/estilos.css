@@ -1,0 +1,109 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+header {
+	min-height: 60px;
+	background-color: #000000;
+	border-bottom: 2px;
+	border-bottom-color: #555555;
+	border-bottom-style: solid;
+	color: #00FB01;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 20px;
+}
+
+body {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	padding: 0;
+	margin: 0;
+}
+
+footer {
+	width: 100%;
+	min-height: 5px;
+	background-color: #000000;
+	color: #00FB01;
+	text-align: center;
+	font-size: 10px;
+	position: fixed;
+	bottom: 0;
+}
+
+h1 {
+	font-size: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: #00ff43;
+}
+
+li {
+	list-style-type: none;
+}
+
+nav {
+	height:85%;
+	text-align: center;
+	
+}
+
+nav a {
+	display: block; padding-top : 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #77f4b6;
+	padding-top: 15px;
+}
+
+nav a:HOVER {
+	background-color: #9db2a7;
+	color: #54ff81;
+}
+
+nav li:LAST-CHILD a {
+	border-bottom: none;
+}
+
+.menu {
+	width: 240px;
+	position: absolute;
+	background: #5e5e5e;
+}
+
+#listaArtistaForm{
+	width: 700px;
+	position: relative;
+	left:300px;
+	vertical-align: middle;
+}
+
+#dtArtista{
+	width: 800px;
+	margin-top:50px; 
+	margin-left:100px;
+}
+
+#listaAlbumForm{
+	width: 400px;
+	position: relative;
+	left:300px;
+	vertical-align: middle;
+}
+
+#divCadastro{
+	width: 600px;
+	position: relative;
+	left:300px;	
+	vertical-align: middle;
+}
+
+#btn_novo{
+	margin-left:425px;
+}
+
+
