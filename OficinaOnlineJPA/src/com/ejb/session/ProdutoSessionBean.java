@@ -44,4 +44,12 @@ public class ProdutoSessionBean implements ProdutoSession {
 		Query q = em.createNamedQuery("busca.todos.produtos");
 		return q.getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Produto> buscaPorNome(String nome) {
+		Query q = em.createNamedQuery("busca.todos.produtos.nome");
+		q.setParameter("nome", nome);
+		return q.getResultList();
+	}
 }

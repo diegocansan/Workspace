@@ -12,4 +12,5 @@ public interface ProdutoSession {
 		Produto altera(Produto p);
 		Produto buscaPorId(Long id);
 		List<Produto> buscaTodos();
+		List<Produto> buscaPorNome(String nome);
 }

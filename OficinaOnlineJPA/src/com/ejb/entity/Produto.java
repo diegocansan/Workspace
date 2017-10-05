@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @SequenceGenerator(name = "Produtos_Sequence", sequenceName = "produtos_seq", allocationSize = 0, initialValue = 1)
 @NamedQueries({ 
 	@NamedQuery(name = "busca.todos.produtos", query = "from Produto"),
-	@NamedQuery(name = "busca.todos.produtos.nome", query = "from Produto p where p.nome = :nome") 
+	@NamedQuery(name = "busca.todos.produtos.nome", query = "select p from Produto p where upper(trim(nome)) Like upper(trim(:nome))") 
 })
 public class Produto {
 	

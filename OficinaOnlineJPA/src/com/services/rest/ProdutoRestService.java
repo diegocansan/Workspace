@@ -50,6 +50,18 @@ public class ProdutoRestService {
 					:Response.noContent().build();
 		}
 		
+		@GET
+		@Path("/pornome/{nome}")
+		@Produces({MediaType.APPLICATION_JSON})
+		public Response getProdutosPorNome(@PathParam("nome") String nome) 
+		{			
+			List<Produto> produtos = produtoSession.buscaPorNome(nome);
+			
+			return produtos != null 
+					?Response.ok(new Gson().toJson(produtos)).build()
+					:Response.noContent().build();
+		}
+		
 		
 		@POST
 		@Path("/insere")
