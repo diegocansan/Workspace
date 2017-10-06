@@ -49,7 +49,10 @@ public class ProdutoSessionBean implements ProdutoSession {
 	@Override
 	public List<Produto> buscaPorNome(String nome) {
 		Query q = em.createNamedQuery("busca.todos.produtos.nome");
-		q.setParameter("nome", nome);
+		q.setParameter("nome", nome + "%");
+		
+		System.out.println("Parametro nome: "  + nome + q.getResultList().size());
+		
 		return q.getResultList();
 	}
 }
