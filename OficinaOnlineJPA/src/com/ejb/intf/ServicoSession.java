@@ -1,7 +1,9 @@
 package com.ejb.intf;
 
 import java.util.List;
+
 import javax.ejb.Local;
+
 import com.ejb.entity.Servico;
 
 @Local
@@ -12,4 +14,5 @@ public interface ServicoSession {
 		Servico altera(Servico s);
 		Servico buscaPorId(Long id);
 		List<Servico> buscaTodos();
+		List<Servico> buscaPorNome(String nome);
 }

@@ -41,12 +41,24 @@ public class ServicoRestService {
 		@GET
 		@Path("/{Id}")
 		@Produces({MediaType.APPLICATION_JSON})
-		public Response getServicoId(@PathParam("Id") Long id) 
+		public Response getServicoId(@PathParam("Id") Long idServico) 
 		{			
-			Servico servico = servicoSession.buscaPorId(id);
+			Servico servico = servicoSession.buscaPorId(idServico);
 			
 			return servico != null 
 					?Response.ok(new Gson().toJson(servico)).build()
+					:Response.noContent().build();
+		}
+		
+		@GET
+		@Path("/pornome/{nome}")
+		@Produces({MediaType.APPLICATION_JSON})
+		public Response getServicosPorNome(@PathParam("nome") String nome) 
+		{			
+			List<Servico> servicos = servicoSession.buscaPorNome(nome);
+			
+			return servicos != null 
+					?Response.ok(new Gson().toJson(servicos)).build()
 					:Response.noContent().build();
 		}
 		

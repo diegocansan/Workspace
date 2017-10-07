@@ -44,4 +44,14 @@ public class ServicoSessionBean implements ServicoSession {
 		Query q = em.createNamedQuery("busca.todos.servicos");
 		return q.getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Servico> buscaPorNome(String nome) {
+		Query q = em.createNamedQuery("busca.todos.servicos.nome");
+		q.setParameter("nome", nome + "%");	
+		
+		return q.getResultList();
+	}
+	
 }
