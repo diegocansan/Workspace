@@ -4,6 +4,7 @@
 
 .metadata
 .recommenders
+.recommenders/
 *.class
 
 OficinaOnlineJPA/.classpath

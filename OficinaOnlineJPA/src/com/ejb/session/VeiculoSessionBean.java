@@ -44,4 +44,12 @@ public class VeiculoSessionBean implements VeiculoSession {
 		Query q = em.createNamedQuery("busca.todos.veiculos");
 		return q.getResultList();
 	}
+
+	@Override
+	public Veiculo buscaPorPlaca(String placa) {
+		Query q = em.createNamedQuery("busca.veiculo.placa");
+		q.setMaxResults(1);
+		q.setParameter("placa", placa);	
+		return (Veiculo) q.getSingleResult();
+	}
 }

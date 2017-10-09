@@ -11,5 +11,6 @@ public interface VeiculoSession {
 		Veiculo insere(Veiculo v);
 		Veiculo altera(Veiculo v);
 		Veiculo buscaPorId(Long id);
+		Veiculo buscaPorPlaca(String placa);
 		List<Veiculo> buscaTodos();
 }

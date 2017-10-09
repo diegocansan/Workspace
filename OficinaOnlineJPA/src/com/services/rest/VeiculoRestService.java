@@ -44,6 +44,15 @@ public class VeiculoRestService {
 
 		return veiculo != null ? Response.ok(new Gson().toJson(veiculo)).build() : Response.noContent().build();
 	}
+	
+	@GET
+	@Path("/placa/{placa}")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Response getVeiculoId(@PathParam("placa") String placa) {
+		Veiculo veiculo = veiculoSession.buscaPorPlaca(placa);
+
+		return veiculo != null ? Response.ok(new Gson().toJson(veiculo)).build() : Response.noContent().build();
+	}
 
 	@POST
 	@Path("/insere")

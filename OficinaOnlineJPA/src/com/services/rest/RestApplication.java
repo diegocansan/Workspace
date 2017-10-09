@@ -15,9 +15,11 @@ public class RestApplication extends Application {
 	@Override
 	public Set<Class<?>> getClasses() {
 		HashSet<Class<?>> set = new HashSet<Class<?>>();
+		set.add(UsuarioRestService.class);
 		set.add(ProdutoRestService.class);
 		set.add(ServicoRestService.class);
 		set.add(VeiculoRestService.class);
+		set.add(ClienteRestService.class);
 
 		return set;
 	}

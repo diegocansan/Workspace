@@ -14,14 +14,15 @@ import javax.persistence.Table;
 @Table(name = "Veiculos")
 @SequenceGenerator(name = "Veiculos_Sequence", sequenceName = "veiculos_seq", allocationSize = 0, initialValue = 1)
 @NamedQueries({ @NamedQuery(name = "busca.todos.veiculos", query = "from Veiculo"),
-		@NamedQuery(name = "busca.todos.veiculos.placa", query = "from Veiculo v where v.placa = :placa") })
+				@NamedQuery(name = "busca.veiculo.placa", query = "from Veiculo v where v.placa = :placa")
+})
 public class Veiculo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Veiculos_Sequence")
 	private Long id;
 
-	@Column(name = "placa", length = 7, nullable = true, unique = true)
+	@Column(name = "placa", unique = true, length = 7, nullable = true)
 	private String placa;
 
 	@Column(name = "modelo", length = 20, nullable = true)
