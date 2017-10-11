@@ -20,6 +20,7 @@ public class RestApplication extends Application {
 		set.add(ServicoRestService.class);
 		set.add(VeiculoRestService.class);
 		set.add(ClienteRestService.class);
+		
 
 		return set;
 	}

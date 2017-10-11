@@ -1,5 +1,6 @@
 package com.services.rest;
 
+
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -22,6 +23,7 @@ import com.google.gson.Gson;
 @Path("/clientes")
 @RequestScoped
 public class ClienteRestService {
+	
 	@EJB
 	private ClienteSession clienteSession;
 	
@@ -30,7 +32,9 @@ public class ClienteRestService {
 	@Path("/")
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response getClientes(){
-					
+			
+		System.out.println("ENTROU NO WEBSERVICE");
+		
 		List<Cliente> clientes = clienteSession.buscaTodos();
 		
 		return clientes != null 
@@ -66,10 +70,10 @@ public class ClienteRestService {
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response getClientesPorCpf(@PathParam("cpf") String cpf) 
 	{			
-		List<Cliente> clientes = clienteSession.buscaPorNome(cpf);
+		Cliente cliente = clienteSession.buscaPorCpf(cpf);
 		
-		return clientes != null 
-				?Response.ok(new Gson().toJson(clientes)).build()
+		return cliente != null 
+				?Response.ok(new Gson().toJson(cliente)).build()
 				:Response.noContent().build();
 	}
 	
