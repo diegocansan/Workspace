@@ -32,9 +32,7 @@ public class ClienteRestService {
 	@Path("/")
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response getClientes(){
-			
-		System.out.println("ENTROU NO WEBSERVICE");
-		
+				
 		List<Cliente> clientes = clienteSession.buscaTodos();
 		
 		return clientes != null 
