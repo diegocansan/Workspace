@@ -8,6 +8,7 @@ import com.ejb.entity.Veiculo;
 public interface VeiculoSession {
 	
 		void remove(Veiculo v);
+		void limpaVeiculosCliente(Long id_cliente);
 		Veiculo insere(Veiculo v);
 		Veiculo altera(Veiculo v);
 		Veiculo buscaPorId(Long id);

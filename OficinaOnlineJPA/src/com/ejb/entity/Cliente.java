@@ -1,12 +1,17 @@
 package com.ejb.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -35,6 +40,19 @@ public class Cliente {
 	
 	@Column(name = "telefone", length = 15, nullable = false)
 	private String telefone;
+	
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name = "cliente_id", nullable = true)
+	private List<Veiculo> veiculos;
+	
+
+	public List<Veiculo> getVeiculos() {
+		return veiculos;
+	}
+
+	public void setVeiculos(List<Veiculo> veiculos) {
+		this.veiculos = veiculos;
+	}
 
 	public Long getId() {
 		return id;

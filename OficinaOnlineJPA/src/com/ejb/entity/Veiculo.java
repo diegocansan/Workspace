@@ -14,7 +14,8 @@ import javax.persistence.Table;
 @Table(name = "Veiculos")
 @SequenceGenerator(name = "Veiculos_Sequence", sequenceName = "veiculos_seq", allocationSize = 0, initialValue = 1)
 @NamedQueries({ @NamedQuery(name = "busca.todos.veiculos", query = "from Veiculo"),
-				@NamedQuery(name = "busca.veiculo.placa", query = "from Veiculo v where v.placa = :placa")
+				@NamedQuery(name = "busca.veiculo.placa", query = "from Veiculo v where v.placa = :placa"),
+				@NamedQuery(name = "limpa.veiculos.cliente", query = "update Veiculo set cliente_id = null where cliente_id = :cliente_id")
 })
 public class Veiculo {
 
@@ -36,7 +37,10 @@ public class Veiculo {
 
 	@Column(name = "cor", nullable = true)
 	private String cor;
-
+	
+	@Column(name = "cliente_id", nullable = true)
+	private Long client_id;
+		
 	public Long getId() {
 		return id;
 	}
@@ -83,6 +87,14 @@ public class Veiculo {
 
 	public void setAno(Short ano) {
 		this.ano = ano;
+	}
+	
+	public Long getClient_id() {
+		return client_id;
+	}
+
+	public void setClient_id(Long client_id) {
+		this.client_id = client_id;
 	}
 
 	@Override

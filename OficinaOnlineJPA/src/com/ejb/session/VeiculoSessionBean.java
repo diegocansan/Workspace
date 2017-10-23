@@ -52,4 +52,11 @@ public class VeiculoSessionBean implements VeiculoSession {
 		q.setParameter("placa", placa);	
 		return (Veiculo) q.getSingleResult();
 	}
+
+	@Override
+	public void limpaVeiculosCliente(Long id_cliente) {
+		Query q = em.createNamedQuery("limpa.veiculos.cliente");
+		q.setParameter("cliente_id", id_cliente);	
+		q.executeUpdate();
+	}
 }

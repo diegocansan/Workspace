@@ -17,7 +17,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.ejb.entity.Cliente;
+import com.ejb.entity.Veiculo;
 import com.ejb.intf.ClienteSession;
+import com.ejb.intf.VeiculoSession;
 import com.google.gson.Gson;
 
 @Path("/clientes")
@@ -26,6 +28,8 @@ public class ClienteRestService {
 	
 	@EJB
 	private ClienteSession clienteSession;
+	@EJB
+	private VeiculoSession veiculoSession;
 	
 	
 	@GET
@@ -34,7 +38,7 @@ public class ClienteRestService {
 	public Response getClientes(){
 				
 		List<Cliente> clientes = clienteSession.buscaTodos();
-		
+				
 		return clientes != null 
 			?Response.ok(new Gson().toJson(clientes)).build()
 			:Response.noContent().build();
@@ -106,7 +110,15 @@ public class ClienteRestService {
 			cliente.setEmail(clienteFromJson.getEmail());
 			cliente.setTelefone(clienteFromJson.getTelefone());
 			
-			clienteSession.altera(cliente);			
+			clienteSession.altera(cliente);		
+			
+			veiculoSession.limpaVeiculosCliente(cliente.getId());
+			
+			for (Veiculo v : clienteFromJson.getVeiculos()){
+				System.out.println(v.getPlaca());
+				v.setClient_id(idCliente);
+				veiculoSession.altera(v);
+			}	
 		}
 	}
 	
