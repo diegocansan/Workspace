@@ -88,8 +88,14 @@ public class ClienteRestService {
 		if(Json != null)
 		{
 			Cliente cliente = new Gson().fromJson(Json, Cliente.class);
-			cliente = clienteSession.insere(cliente);
-			return Response.ok(new Gson().toJson(cliente)).build();	
+			Cliente newcliente = clienteSession.insere(cliente);
+			
+			for (Veiculo v : cliente.getVeiculos()){
+				v.setClient_id(newcliente.getId());
+				veiculoSession.altera(v);
+			}	
+			
+			return Response.ok(new Gson().toJson(newcliente)).build();	
 		}
 		else
 			return Response.noContent().build();
@@ -115,7 +121,6 @@ public class ClienteRestService {
 			veiculoSession.limpaVeiculosCliente(cliente.getId());
 			
 			for (Veiculo v : clienteFromJson.getVeiculos()){
-				System.out.println(v.getPlaca());
 				v.setClient_id(idCliente);
 				veiculoSession.altera(v);
 			}	
