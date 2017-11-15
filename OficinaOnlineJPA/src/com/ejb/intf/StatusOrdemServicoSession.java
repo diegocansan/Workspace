@@ -13,5 +13,5 @@ public interface StatusOrdemServicoSession {
 	StatusOrdemServico altera(StatusOrdemServico s);
 	StatusOrdemServico buscaPorId(Long id);
 	List<StatusOrdemServico> buscaTodos();
-	List<StatusOrdemServico> buscaPorNome(String nome);
+	List<StatusOrdemServico> buscaPorStatus(String nome);
 }

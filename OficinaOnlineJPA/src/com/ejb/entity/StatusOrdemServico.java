@@ -14,12 +14,14 @@ import javax.persistence.Table;
 @Table(name="StatusOrdemServico")
 @SequenceGenerator(name = "StatusOrdemServico_Sequence", sequenceName = "statusordemservico_seq", allocationSize = 0, initialValue = 1)
 @NamedQueries({ 
-	@NamedQuery(name = "busca.todos", query = "from StatusOrdemServico")
+	@NamedQuery(name = "busca.todos", query = "from StatusOrdemServico"),
+	@NamedQuery(name = "busca.todos.status", query = "from StatusOrdemServico s where upper(trim(s.status)) like upper(trim(:status)) ")
+	
 })
 public class StatusOrdemServico {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "OrdemServico_Sequence")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "StatusOrdemServico_Sequence")
 	private Long id;
 		
 	@Column(name = "status", length = 60, nullable = false)
