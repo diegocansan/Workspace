@@ -56,10 +56,10 @@ public class OrdemServicoRestService {
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response getOrdemStatusId(@PathParam("Id") Long id) 
 	{			
-		OrdemServico ordenServico = ordemServicoSession.buscaPorId(id);
+		List<OrdemServico> ordens = ordemServicoSession.buscaTodasStatus(id);
 		
-		return ordenServico != null 
-				?Response.ok(new Gson().toJson(ordenServico)).build()
+		return ordens != null 
+				?Response.ok(new Gson().toJson(ordens)).build()
 				:Response.noContent().build();
 	}
 	

@@ -10,9 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -35,7 +36,7 @@ public class OrdemServico {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "OrdemServico_Sequence")
 	private Long id;
 	
-	@Column(name = "data", length = 11, unique = true, nullable = false)
+	@Column(name = "data", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date data;
 	
@@ -51,12 +52,22 @@ public class OrdemServico {
     @JoinColumn(name="veiculoId")
 	private Veiculo veiculo;
 	
-	@OneToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JoinTable(name="ordemservico_servicos",
+     joinColumns={@JoinColumn(name="ordem_id", 
+      referencedColumnName="id")},  
+     inverseJoinColumns={@JoinColumn(name="servico_id", 
+       referencedColumnName="id")}) 
 	private List<Servico> servicos;
 	
-	@OneToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
+	@JoinTable(name="ordemservico_produtos",
+     joinColumns={@JoinColumn(name="ordem_id", 
+      referencedColumnName="id")},  
+     inverseJoinColumns={@JoinColumn(name="produto_id", 
+       referencedColumnName="id")}) 
 	private List<Produto> produtos;
 
 	public Long getId() {

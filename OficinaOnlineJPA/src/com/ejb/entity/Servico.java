@@ -29,7 +29,7 @@ public class Servico {
 
 	@Column(name = "valor", nullable = true)
 	private float valor;
-
+	
 	public Long getId() {
 		return id;
 	}
