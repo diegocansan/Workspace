@@ -90,8 +90,11 @@ public class OrdemServicoRestService {
 		{
 			OrdemServico ordemFromJson = new Gson().fromJson(Json, OrdemServico.class);
 			
+			
 			ordem.setData(ordemFromJson.getData());
 			ordem.setStatus(ordemFromJson.getStatus());
+			ordem.setCliente(ordemFromJson.getCliente());
+			ordem.setVeiculo(ordemFromJson.getVeiculo());
 			ordem.setServicos(ordemFromJson.getServicos());
 			ordem.setProdutos(ordemFromJson.getProdutos());
 			
