@@ -124,7 +124,7 @@ public class UsuarioRestService {
 			
 			return usuario != null 
 				?Response.ok(new Gson().toJson(usuario)).build()
-				:Response.status(404).entity("Usuário ou senha inválidos").build();
+				:Response.status(404).entity("Usuário ou senha inválidos!").build();
 		}
 		
 	}
