@@ -112,4 +112,19 @@ public class UsuarioRestService {
 				return Response.noContent().build();
 		}
 		
+		@POST
+		@Path("/auth")
+		@Produces({MediaType.APPLICATION_JSON})
+		@Consumes({MediaType.APPLICATION_JSON})
+		public Response getLogar(String Json){
+			
+			Usuario usuarioFromJson = new Gson().fromJson(Json, Usuario.class);
+						
+			Usuario usuario = usuarioSession.login(usuarioFromJson.getLogin(), usuarioFromJson.getSenha());
+			
+			return usuario != null 
+				?Response.ok(new Gson().toJson(usuario)).build()
+				:Response.status(404).entity("Usuário ou senha inválidos").build();
+		}
+		
 	}

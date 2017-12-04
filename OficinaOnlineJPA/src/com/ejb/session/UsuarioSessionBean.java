@@ -44,7 +44,12 @@ public class UsuarioSessionBean implements UsuarioSession {
 		q.setMaxResults(1);
 		q.setParameter("login", login);	
 		q.setParameter("senha", senha);	
-		return (Usuario) q.getSingleResult();
+		
+		try {
+			return (Usuario) q.getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	@SuppressWarnings("unchecked")
