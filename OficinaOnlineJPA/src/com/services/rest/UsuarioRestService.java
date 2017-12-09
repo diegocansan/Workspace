@@ -92,6 +92,7 @@ public class UsuarioRestService {
 				
 				usuario.setLogin(usuarioFromJson.getLogin());
 				usuario.setSenha(usuarioFromJson.getSenha());
+				usuario.setCliente(usuarioFromJson.getCliente());
 				usuarioSession.altera(usuario);			
 			}
 		}

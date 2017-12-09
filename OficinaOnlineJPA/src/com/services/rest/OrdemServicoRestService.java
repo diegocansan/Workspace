@@ -63,6 +63,18 @@ public class OrdemServicoRestService {
 				:Response.noContent().build();
 	}
 	
+	@GET
+	@Path("/cliente/{Id}")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response getOrdemClienteId(@PathParam("Id") Long id) 
+	{			
+		List<OrdemServico> ordens = ordemServicoSession.buscaTodasCliente(id);
+		
+		return ordens != null 
+				?Response.ok(new Gson().toJson(ordens)).build()
+				:Response.noContent().build();
+	}
+	
 	@POST
 	@Path("/insere")
 	@Consumes({MediaType.APPLICATION_JSON})

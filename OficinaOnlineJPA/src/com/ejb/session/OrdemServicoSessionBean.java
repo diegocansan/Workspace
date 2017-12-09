@@ -53,5 +53,19 @@ public class OrdemServicoSessionBean implements OrdemServicoSession {
 		q.setParameter("statusId", statusId);	
 		return q.getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<OrdemServico> buscaTodasCliente(Long clienteId) {
+		Query q = em.createNamedQuery("busca.todas.cliente");
+		q.setParameter("clienteId", clienteId);	
+		return q.getResultList();
+	}
+	
+	
+	
+	
+	
+	
 
 }

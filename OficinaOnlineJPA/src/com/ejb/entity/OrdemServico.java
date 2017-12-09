@@ -28,7 +28,8 @@ import org.hibernate.annotations.FetchMode;
 @SequenceGenerator(name = "OrdemServico_Sequence", sequenceName = "ordemservico_seq", allocationSize = 0, initialValue = 1)
 @NamedQueries({ 
 	@NamedQuery(name = "busca.todas", query = "from OrdemServico"),
-	@NamedQuery(name = "busca.todas.status", query = "from OrdemServico ordem where ordem.status.id = :statusId")
+	@NamedQuery(name = "busca.todas.status", query = "from OrdemServico ordem where ordem.status.id = :statusId"),
+	@NamedQuery(name = "busca.todas.cliente", query = "from OrdemServico ordem where ordem.cliente.id = :clienteId")
 })
 public class OrdemServico {
 	
