@@ -64,11 +64,47 @@ public class OrdemServicoRestService {
 	}
 	
 	@GET
-	@Path("/cliente/{Id}")
+	@Path("pendentes/cliente/{Id}")
 	@Produces({MediaType.APPLICATION_JSON})
-	public Response getOrdemClienteId(@PathParam("Id") Long id) 
+	public Response getOrdemClientePendentes(@PathParam("Id") Long id) 
 	{			
-		List<OrdemServico> ordens = ordemServicoSession.buscaTodasCliente(id);
+		List<OrdemServico> ordens = ordemServicoSession.buscaPendentesCliente(id);
+		
+		return ordens != null 
+				?Response.ok(new Gson().toJson(ordens)).build()
+				:Response.noContent().build();
+	}
+	
+	@GET
+	@Path("aprovadas/cliente/{Id}")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response getOrdemClienteAprovadas(@PathParam("Id") Long id) 
+	{			
+		List<OrdemServico> ordens = ordemServicoSession.buscaAprovadasCliente(id);
+		
+		return ordens != null 
+				?Response.ok(new Gson().toJson(ordens)).build()
+				:Response.noContent().build();
+	}
+	
+	@GET
+	@Path("emandamento/cliente/{Id}")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response getOrdemClienteEmAndamento(@PathParam("Id") Long id) 
+	{			
+		List<OrdemServico> ordens = ordemServicoSession.buscaEmAndamentoCliente(id);
+		
+		return ordens != null 
+				?Response.ok(new Gson().toJson(ordens)).build()
+				:Response.noContent().build();
+	}
+	
+	@GET
+	@Path("concluidas/cliente/{Id}")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response getOrdemClienteConcluidas(@PathParam("Id") Long id) 
+	{			
+		List<OrdemServico> ordens = ordemServicoSession.buscaConcluidasCliente(id);
 		
 		return ordens != null 
 				?Response.ok(new Gson().toJson(ordens)).build()

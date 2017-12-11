@@ -29,7 +29,11 @@ import org.hibernate.annotations.FetchMode;
 @NamedQueries({ 
 	@NamedQuery(name = "busca.todas", query = "from OrdemServico"),
 	@NamedQuery(name = "busca.todas.status", query = "from OrdemServico ordem where ordem.status.id = :statusId"),
-	@NamedQuery(name = "busca.todas.cliente", query = "from OrdemServico ordem where ordem.cliente.id = :clienteId")
+	@NamedQuery(name = "busca.todas.cliente", query = "from OrdemServico ordem where ordem.cliente.id = :clienteId"),
+	@NamedQuery(name = "busca.pendentes.cliente", query = "from OrdemServico ordem where ordem.status.id = 1 and ordem.cliente.id = :clienteId"),
+	@NamedQuery(name = "busca.aprovadas.cliente", query = "from OrdemServico ordem where ordem.status.id = 2 and ordem.cliente.id = :clienteId"),
+	@NamedQuery(name = "busca.emandamento.cliente", query = "from OrdemServico ordem where ordem.status.id = 3 and ordem.cliente.id = :clienteId"),
+	@NamedQuery(name = "busca.concluidas.cliente", query = "from OrdemServico ordem where ordem.status.id = 4 and ordem.cliente.id = :clienteId")
 })
 public class OrdemServico {
 	

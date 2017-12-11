@@ -16,4 +16,8 @@ public interface OrdemServicoSession {
 	List<OrdemServico> buscaTodas();
 	List<OrdemServico> buscaTodasStatus(Long statusId);
 	List<OrdemServico> buscaTodasCliente(Long clienteId);
+	List<OrdemServico> buscaPendentesCliente(Long clienteId);
+	List<OrdemServico> buscaAprovadasCliente(Long clienteId);
+	List<OrdemServico> buscaEmAndamentoCliente(Long clienteId);
+	List<OrdemServico> buscaConcluidasCliente(Long clienteId);
 }

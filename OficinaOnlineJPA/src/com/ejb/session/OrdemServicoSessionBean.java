@@ -61,6 +61,39 @@ public class OrdemServicoSessionBean implements OrdemServicoSession {
 		q.setParameter("clienteId", clienteId);	
 		return q.getResultList();
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<OrdemServico> buscaPendentesCliente(Long clienteId) {
+		Query q = em.createNamedQuery("busca.pendentes.cliente");
+		q.setParameter("clienteId", clienteId);	
+		return q.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<OrdemServico> buscaAprovadasCliente(Long clienteId) {
+		Query q = em.createNamedQuery("busca.aprovadas.cliente");
+		q.setParameter("clienteId", clienteId);	
+		return q.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<OrdemServico> buscaEmAndamentoCliente(Long clienteId) {
+		Query q = em.createNamedQuery("busca.emandamento.cliente");
+		q.setParameter("clienteId", clienteId);	
+		return q.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<OrdemServico> buscaConcluidasCliente(Long clienteId) {
+		Query q = em.createNamedQuery("busca.concluidas.cliente");
+		q.setParameter("clienteId", clienteId);	
+		return q.getResultList();
+	}
+	
 	
 	
 	
